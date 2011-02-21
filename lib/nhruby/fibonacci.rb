@@ -18,18 +18,11 @@ module NHRuby
       @seq = [0, 1]
     end
 
-    # Return the Fibonacci number at position n.  Will regenerate the
-    # sequence up to n, if necessary.
+    # Return the Fibonacci number at position n.  Will generate missing
+    # entries in the cached sequence up to n, if necessary.
     def [](n)
-      generate(n) if @seq.length <= n
-      @seq[n]
+      @seq[n] ||= self.[](n-1) + self.[](n-2)
     end
-
-    # Return the Fibonacci number at position n.  Will generate and
-    # store all numbers below n in the sequence. 
-    def generate(n)
-      @seq[n] ||= generate(n-1) + generate(n-2)
-    end 
 
   end
 end
