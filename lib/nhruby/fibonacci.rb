@@ -21,14 +21,14 @@ module NHRuby
     # Return the Fibonacci number at position n.  Will regenerate the
     # sequence up to n, if necessary.
     def [](n)
-      generate(n) if @seq.length < n
+      generate(n) if @seq.length <= n
       @seq[n]
     end
 
     # Return the Fibonacci number at position n.  Will generate and
     # store all numbers below n in the sequence. 
     def generate(n)
-      @seq[n] = generate(n-1) + generate(n-2)
+      @seq[n] ||= generate(n-1) + generate(n-2)
     end 
 
   end
