@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'nhruby/fibonacci'
+
+fib = NHRuby::Fibonacci.new
+puts fib[ARGV.shift.to_i]
